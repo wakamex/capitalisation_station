@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # ------------------------------------------------------------------------------
 #
-#   Copyright 2024 eightballer
+#   Copyright 2024 Mihai Cosma
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@ from aea.mail.base_pb2 import Message as ProtobufMessage
 from aea.protocols.base import Message, Serializer
 
 from packages.eightballer.protocols.funding import funding_pb2
-from packages.eightballer.protocols.funding.custom_types import FundingData
+from packages.eightballer.protocols.funding.custom_types import Funding
 from packages.eightballer.protocols.funding.message import FundingMessage
 
 
@@ -55,19 +55,7 @@ class FundingSerializer(Serializer):
         dialogue_message_pb.target = msg.target
 
         performative_id = msg.performative
-        if performative_id == FundingMessage.Performative.GET_FUNDING_RATE:
-            performative = funding_pb2.FundingMessage.Get_Funding_Rate_Performative()  # type: ignore
-            exchange_id = msg.exchange_id
-            performative.exchange_id = exchange_id
-            symbol = msg.symbol
-            performative.symbol = symbol
-            funding_msg.get_funding_rate.CopyFrom(performative)
-        elif performative_id == FundingMessage.Performative.FUNDING_RATE:
-            performative = funding_pb2.FundingMessage.Funding_Rate_Performative()  # type: ignore
-            funding_data = msg.funding_data
-            FundingData.encode(performative.funding_data, funding_data)
-            funding_msg.funding_rate.CopyFrom(performative)
-        elif performative_id == FundingMessage.Performative.SUBSCRIBE:
+        if performative_id == FundingMessage.Performative.SUBSCRIBE:
             performative = funding_pb2.FundingMessage.Subscribe_Performative()  # type: ignore
             exchange_id = msg.exchange_id
             performative.exchange_id = exchange_id
@@ -84,7 +72,7 @@ class FundingSerializer(Serializer):
         elif performative_id == FundingMessage.Performative.FUNDING_UPDATE:
             performative = funding_pb2.FundingMessage.Funding_Update_Performative()  # type: ignore
             funding_data = msg.funding_data
-            FundingData.encode(performative.funding_data, funding_data)
+            Funding.encode(performative.funding_data, funding_data)
             funding_msg.funding_update.CopyFrom(performative)
         elif performative_id == FundingMessage.Performative.ERROR:
             performative = funding_pb2.FundingMessage.Error_Performative()  # type: ignore
@@ -122,16 +110,7 @@ class FundingSerializer(Serializer):
         performative = funding_pb.WhichOneof("performative")
         performative_id = FundingMessage.Performative(str(performative))
         performative_content = dict()  # type: Dict[str, Any]
-        if performative_id == FundingMessage.Performative.GET_FUNDING_RATE:
-            exchange_id = funding_pb.get_funding_rate.exchange_id
-            performative_content["exchange_id"] = exchange_id
-            symbol = funding_pb.get_funding_rate.symbol
-            performative_content["symbol"] = symbol
-        elif performative_id == FundingMessage.Performative.FUNDING_RATE:
-            pb2_funding_data = funding_pb.funding_rate.funding_data
-            funding_data = FundingData.decode(pb2_funding_data)
-            performative_content["funding_data"] = funding_data
-        elif performative_id == FundingMessage.Performative.SUBSCRIBE:
+        if performative_id == FundingMessage.Performative.SUBSCRIBE:
             exchange_id = funding_pb.subscribe.exchange_id
             performative_content["exchange_id"] = exchange_id
             symbol = funding_pb.subscribe.symbol
@@ -143,7 +122,7 @@ class FundingSerializer(Serializer):
             performative_content["symbol"] = symbol
         elif performative_id == FundingMessage.Performative.FUNDING_UPDATE:
             pb2_funding_data = funding_pb.funding_update.funding_data
-            funding_data = FundingData.decode(pb2_funding_data)
+            funding_data = Funding.decode(pb2_funding_data)
             performative_content["funding_data"] = funding_data
         elif performative_id == FundingMessage.Performative.ERROR:
             error_msg = funding_pb.error.error_msg
