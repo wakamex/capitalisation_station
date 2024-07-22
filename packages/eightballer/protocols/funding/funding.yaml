@@ -1,0 +1,21 @@
+name: funding
+author: eightballer
+version: 0.1.0
+protocol_specification_id: eightballer/funding:0.1.0
+type: protocol
+description: A protocol for representing funding rates and related information for perpetual swap contracts.
+license: Apache-2.0
+aea_version: '>=1.0.0, <2.0.0'
+fingerprint:
+  __init__.py: bafybeihxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  custom_types.py: bafybeihxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  dialogues.py: bafybeihxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  message.py: bafybeihxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  funding.proto: bafybeihxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  funding_pb2.py: bafybeihxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  serialization.py: bafybeihxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  tests/__init__.py: bafybeihxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  tests/test_funding.py: bafybeihxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+fingerprint_ignore_patterns: []
+dependencies:
+  protobuf: {}

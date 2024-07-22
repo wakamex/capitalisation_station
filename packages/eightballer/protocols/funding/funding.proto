@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package aea.eightballer.funding.v0_1_0;
+
+message FundingMessage {
+
+  // Custom Types
+  message FundingData {
+    string symbol = 1;
+    double mark_price = 2;
+    double index_price = 3;
+    double interest_rate = 4;
+    double estimated_settle_price = 5;
+    int64 timestamp = 6;
+    string datetime = 7;
+    double funding_rate = 8;
+    int64 funding_timestamp = 9;
+    string funding_datetime = 10;
+    double next_funding_rate = 11;
+    int64 next_funding_timestamp = 12;
+    string next_funding_datetime = 13;
+    double previous_funding_rate = 14;
+    int64 previous_funding_timestamp = 15;
+    string previous_funding_datetime = 16;
+    string exchange_id = 17;
+  }
+
+  // Performatives and contents
+  message Get_Funding_Rate_Performative {
+    string exchange_id = 1;
+    string symbol = 2;
+  }
+
+  message Funding_Rate_Performative {
+    FundingData funding_data = 1;
+  }
+
+  message Subscribe_Performative {
+    string exchange_id = 1;
+    string symbol = 2;
+  }
+
+  message Unsubscribe_Performative {
+    string exchange_id = 1;
+    string symbol = 2;
+  }
+
+  message Funding_Update_Performative {
+    FundingData funding_data = 1;
+  }
+
+  message Error_Performative {
+    string error_msg = 1;
+  }
+
+  oneof performative {
+    Get_Funding_Rate_Performative get_funding_rate = 5;
+    Funding_Rate_Performative funding_rate = 6;
+    Subscribe_Performative subscribe = 7;
+    Unsubscribe_Performative unsubscribe = 8;
+    Funding_Update_Performative funding_update = 9;
+    Error_Performative error = 10;
+  }
+}
