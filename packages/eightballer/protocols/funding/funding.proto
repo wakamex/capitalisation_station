@@ -26,15 +26,6 @@ message FundingMessage {
   }
 
   // Performatives and contents
-  message Get_Funding_Rate_Performative {
-    string exchange_id = 1;
-    string symbol = 2;
-  }
-
-  message Funding_Rate_Performative {
-    FundingData funding_data = 1;
-  }
-
   message Subscribe_Performative {
     string exchange_id = 1;
     string symbol = 2;
@@ -54,11 +45,9 @@ message FundingMessage {
   }
 
   oneof performative {
-    Get_Funding_Rate_Performative get_funding_rate = 5;
-    Funding_Rate_Performative funding_rate = 6;
-    Subscribe_Performative subscribe = 7;
-    Unsubscribe_Performative unsubscribe = 8;
-    Funding_Update_Performative funding_update = 9;
-    Error_Performative error = 10;
+    Subscribe_Performative subscribe = 5;
+    Unsubscribe_Performative unsubscribe = 6;
+    Funding_Update_Performative funding_update = 7;
+    Error_Performative error = 8;
   }
 }

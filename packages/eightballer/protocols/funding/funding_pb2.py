@@ -14,14 +14,12 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4packages/eightballer/protocols/funding/funding.proto\x12\x1e\x61\x65\x61.eightballer.funding.v0_1_0\"\xf6\x0b\n\x0e\x46undingMessage\x12h\n\x10get_funding_rate\x18\x05 \x01(\x0b\x32L.aea.eightballer.funding.v0_1_0.FundingMessage.Get_Funding_Rate_PerformativeH\x00\x12`\n\x0c\x66unding_rate\x18\x06 \x01(\x0b\x32H.aea.eightballer.funding.v0_1_0.FundingMessage.Funding_Rate_PerformativeH\x00\x12Z\n\tsubscribe\x18\x07 \x01(\x0b\x32\x45.aea.eightballer.funding.v0_1_0.FundingMessage.Subscribe_PerformativeH\x00\x12^\n\x0bunsubscribe\x18\x08 \x01(\x0b\x32G.aea.eightballer.funding.v0_1_0.FundingMessage.Unsubscribe_PerformativeH\x00\x12\x64\n\x0e\x66unding_update\x18\t \x01(\x0b\x32J.aea.eightballer.funding.v0_1_0.FundingMessage.Funding_Update_PerformativeH\x00\x12R\n\x05\x65rror\x18\n \x01(\x0b\x32\x41.aea.eightballer.funding.v0_1_0.FundingMessage.Error_PerformativeH\x00\x1a\xc2\x03\n\x0b\x46undingData\x12\x0e\n\x06symbol\x18\x01 \x01(\t\x12\x12\n\nmark_price\x18\x02 \x01(\x01\x12\x13\n\x0bindex_price\x18\x03 \x01(\x01\x12\x15\n\rinterest_rate\x18\x04 \x01(\x01\x12\x1e\n\x16\x65stimated_settle_price\x18\x05 \x01(\x01\x12\x11\n\ttimestamp\x18\x06 \x01(\x03\x12\x10\n\x08\x64\x61tetime\x18\x07 \x01(\t\x12\x14\n\x0c\x66unding_rate\x18\x08 \x01(\x01\x12\x19\n\x11\x66unding_timestamp\x18\t \x01(\x03\x12\x18\n\x10\x66unding_datetime\x18\n \x01(\t\x12\x19\n\x11next_funding_rate\x18\x0b \x01(\x01\x12\x1e\n\x16next_funding_timestamp\x18\x0c \x01(\x03\x12\x1d\n\x15next_funding_datetime\x18\r \x01(\t\x12\x1d\n\x15previous_funding_rate\x18\x0e \x01(\x01\x12\"\n\x1aprevious_funding_timestamp\x18\x0f \x01(\x03\x12!\n\x19previous_funding_datetime\x18\x10 \x01(\t\x12\x13\n\x0b\x65xchange_id\x18\x11 \x01(\t\x1a\x44\n\x1dGet_Funding_Rate_Performative\x12\x13\n\x0b\x65xchange_id\x18\x01 \x01(\t\x12\x0e\n\x06symbol\x18\x02 \x01(\t\x1am\n\x19\x46unding_Rate_Performative\x12P\n\x0c\x66unding_data\x18\x01 \x01(\x0b\x32:.aea.eightballer.funding.v0_1_0.FundingMessage.FundingData\x1a=\n\x16Subscribe_Performative\x12\x13\n\x0b\x65xchange_id\x18\x01 \x01(\t\x12\x0e\n\x06symbol\x18\x02 \x01(\t\x1a?\n\x18Unsubscribe_Performative\x12\x13\n\x0b\x65xchange_id\x18\x01 \x01(\t\x12\x0e\n\x06symbol\x18\x02 \x01(\t\x1ao\n\x1b\x46unding_Update_Performative\x12P\n\x0c\x66unding_data\x18\x01 \x01(\x0b\x32:.aea.eightballer.funding.v0_1_0.FundingMessage.FundingData\x1a\'\n\x12\x45rror_Performative\x12\x11\n\terror_msg\x18\x01 \x01(\tB\x0e\n\x0cperformativeb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4packages/eightballer/protocols/funding/funding.proto\x12\x1e\x61\x65\x61.eightballer.funding.v0_1_0\"\xf5\x08\n\x0e\x46undingMessage\x12Z\n\tsubscribe\x18\x05 \x01(\x0b\x32\x45.aea.eightballer.funding.v0_1_0.FundingMessage.Subscribe_PerformativeH\x00\x12^\n\x0bunsubscribe\x18\x06 \x01(\x0b\x32G.aea.eightballer.funding.v0_1_0.FundingMessage.Unsubscribe_PerformativeH\x00\x12\x64\n\x0e\x66unding_update\x18\x07 \x01(\x0b\x32J.aea.eightballer.funding.v0_1_0.FundingMessage.Funding_Update_PerformativeH\x00\x12R\n\x05\x65rror\x18\x08 \x01(\x0b\x32\x41.aea.eightballer.funding.v0_1_0.FundingMessage.Error_PerformativeH\x00\x1a\xc2\x03\n\x0b\x46undingData\x12\x0e\n\x06symbol\x18\x01 \x01(\t\x12\x12\n\nmark_price\x18\x02 \x01(\x01\x12\x13\n\x0bindex_price\x18\x03 \x01(\x01\x12\x15\n\rinterest_rate\x18\x04 \x01(\x01\x12\x1e\n\x16\x65stimated_settle_price\x18\x05 \x01(\x01\x12\x11\n\ttimestamp\x18\x06 \x01(\x03\x12\x10\n\x08\x64\x61tetime\x18\x07 \x01(\t\x12\x14\n\x0c\x66unding_rate\x18\x08 \x01(\x01\x12\x19\n\x11\x66unding_timestamp\x18\t \x01(\x03\x12\x18\n\x10\x66unding_datetime\x18\n \x01(\t\x12\x19\n\x11next_funding_rate\x18\x0b \x01(\x01\x12\x1e\n\x16next_funding_timestamp\x18\x0c \x01(\x03\x12\x1d\n\x15next_funding_datetime\x18\r \x01(\t\x12\x1d\n\x15previous_funding_rate\x18\x0e \x01(\x01\x12\"\n\x1aprevious_funding_timestamp\x18\x0f \x01(\x03\x12!\n\x19previous_funding_datetime\x18\x10 \x01(\t\x12\x13\n\x0b\x65xchange_id\x18\x11 \x01(\t\x1a=\n\x16Subscribe_Performative\x12\x13\n\x0b\x65xchange_id\x18\x01 \x01(\t\x12\x0e\n\x06symbol\x18\x02 \x01(\t\x1a?\n\x18Unsubscribe_Performative\x12\x13\n\x0b\x65xchange_id\x18\x01 \x01(\t\x12\x0e\n\x06symbol\x18\x02 \x01(\t\x1ao\n\x1b\x46unding_Update_Performative\x12P\n\x0c\x66unding_data\x18\x01 \x01(\x0b\x32:.aea.eightballer.funding.v0_1_0.FundingMessage.FundingData\x1a\'\n\x12\x45rror_Performative\x12\x11\n\terror_msg\x18\x01 \x01(\tB\x0e\n\x0cperformativeb\x06proto3')
 
 
 
 _FUNDINGMESSAGE = DESCRIPTOR.message_types_by_name['FundingMessage']
 _FUNDINGMESSAGE_FUNDINGDATA = _FUNDINGMESSAGE.nested_types_by_name['FundingData']
-_FUNDINGMESSAGE_GET_FUNDING_RATE_PERFORMATIVE = _FUNDINGMESSAGE.nested_types_by_name['Get_Funding_Rate_Performative']
-_FUNDINGMESSAGE_FUNDING_RATE_PERFORMATIVE = _FUNDINGMESSAGE.nested_types_by_name['Funding_Rate_Performative']
 _FUNDINGMESSAGE_SUBSCRIBE_PERFORMATIVE = _FUNDINGMESSAGE.nested_types_by_name['Subscribe_Performative']
 _FUNDINGMESSAGE_UNSUBSCRIBE_PERFORMATIVE = _FUNDINGMESSAGE.nested_types_by_name['Unsubscribe_Performative']
 _FUNDINGMESSAGE_FUNDING_UPDATE_PERFORMATIVE = _FUNDINGMESSAGE.nested_types_by_name['Funding_Update_Performative']
@@ -32,20 +30,6 @@ FundingMessage = _reflection.GeneratedProtocolMessageType('FundingMessage', (_me
     'DESCRIPTOR' : _FUNDINGMESSAGE_FUNDINGDATA,
     '__module__' : 'packages.eightballer.protocols.funding.funding_pb2'
     # @@protoc_insertion_point(class_scope:aea.eightballer.funding.v0_1_0.FundingMessage.FundingData)
-    })
-  ,
-
-  'Get_Funding_Rate_Performative' : _reflection.GeneratedProtocolMessageType('Get_Funding_Rate_Performative', (_message.Message,), {
-    'DESCRIPTOR' : _FUNDINGMESSAGE_GET_FUNDING_RATE_PERFORMATIVE,
-    '__module__' : 'packages.eightballer.protocols.funding.funding_pb2'
-    # @@protoc_insertion_point(class_scope:aea.eightballer.funding.v0_1_0.FundingMessage.Get_Funding_Rate_Performative)
-    })
-  ,
-
-  'Funding_Rate_Performative' : _reflection.GeneratedProtocolMessageType('Funding_Rate_Performative', (_message.Message,), {
-    'DESCRIPTOR' : _FUNDINGMESSAGE_FUNDING_RATE_PERFORMATIVE,
-    '__module__' : 'packages.eightballer.protocols.funding.funding_pb2'
-    # @@protoc_insertion_point(class_scope:aea.eightballer.funding.v0_1_0.FundingMessage.Funding_Rate_Performative)
     })
   ,
 
@@ -82,8 +66,6 @@ FundingMessage = _reflection.GeneratedProtocolMessageType('FundingMessage', (_me
   })
 _sym_db.RegisterMessage(FundingMessage)
 _sym_db.RegisterMessage(FundingMessage.FundingData)
-_sym_db.RegisterMessage(FundingMessage.Get_Funding_Rate_Performative)
-_sym_db.RegisterMessage(FundingMessage.Funding_Rate_Performative)
 _sym_db.RegisterMessage(FundingMessage.Subscribe_Performative)
 _sym_db.RegisterMessage(FundingMessage.Unsubscribe_Performative)
 _sym_db.RegisterMessage(FundingMessage.Funding_Update_Performative)
@@ -93,19 +75,15 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _FUNDINGMESSAGE._serialized_start=89
-  _FUNDINGMESSAGE._serialized_end=1615
-  _FUNDINGMESSAGE_FUNDINGDATA._serialized_start=686
-  _FUNDINGMESSAGE_FUNDINGDATA._serialized_end=1136
-  _FUNDINGMESSAGE_GET_FUNDING_RATE_PERFORMATIVE._serialized_start=1138
-  _FUNDINGMESSAGE_GET_FUNDING_RATE_PERFORMATIVE._serialized_end=1206
-  _FUNDINGMESSAGE_FUNDING_RATE_PERFORMATIVE._serialized_start=1208
-  _FUNDINGMESSAGE_FUNDING_RATE_PERFORMATIVE._serialized_end=1317
-  _FUNDINGMESSAGE_SUBSCRIBE_PERFORMATIVE._serialized_start=1319
-  _FUNDINGMESSAGE_SUBSCRIBE_PERFORMATIVE._serialized_end=1380
-  _FUNDINGMESSAGE_UNSUBSCRIBE_PERFORMATIVE._serialized_start=1382
-  _FUNDINGMESSAGE_UNSUBSCRIBE_PERFORMATIVE._serialized_end=1445
-  _FUNDINGMESSAGE_FUNDING_UPDATE_PERFORMATIVE._serialized_start=1447
-  _FUNDINGMESSAGE_FUNDING_UPDATE_PERFORMATIVE._serialized_end=1558
-  _FUNDINGMESSAGE_ERROR_PERFORMATIVE._serialized_start=1560
-  _FUNDINGMESSAGE_ERROR_PERFORMATIVE._serialized_end=1599
+  _FUNDINGMESSAGE._serialized_end=1230
+  _FUNDINGMESSAGE_FUNDINGDATA._serialized_start=482
+  _FUNDINGMESSAGE_FUNDINGDATA._serialized_end=932
+  _FUNDINGMESSAGE_SUBSCRIBE_PERFORMATIVE._serialized_start=934
+  _FUNDINGMESSAGE_SUBSCRIBE_PERFORMATIVE._serialized_end=995
+  _FUNDINGMESSAGE_UNSUBSCRIBE_PERFORMATIVE._serialized_start=997
+  _FUNDINGMESSAGE_UNSUBSCRIBE_PERFORMATIVE._serialized_end=1060
+  _FUNDINGMESSAGE_FUNDING_UPDATE_PERFORMATIVE._serialized_start=1062
+  _FUNDINGMESSAGE_FUNDING_UPDATE_PERFORMATIVE._serialized_end=1173
+  _FUNDINGMESSAGE_ERROR_PERFORMATIVE._serialized_start=1175
+  _FUNDINGMESSAGE_ERROR_PERFORMATIVE._serialized_end=1214
 # @@protoc_insertion_point(module_scope)

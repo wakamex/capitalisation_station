@@ -161,7 +161,7 @@ class FundingMessage(Message):
         return cast(str, self.get("symbol"))
 
     def _is_consistent(self) -> bool:
-        """Check that the message follows the order_book protocol."""
+        """Check that the message follows the funding protocol."""
         try:
             enforce(
                 isinstance(self.dialogue_reference, tuple),
@@ -240,12 +240,12 @@ class FundingMessage(Message):
                     isinstance(self.symbol, str),
                     "Invalid type for content 'symbol'. Expected 'str'. Found '{}'.".format(type(self.symbol)),
                 )
-            elif self.performative == FundingMessage.Performative.ORDER_BOOK_UPDATE:
+            elif self.performative == FundingMessage.Performative.FUNDING_UPDATE:
                 expected_nb_of_contents = 1
                 enforce(
-                    isinstance(self.order_book, CustomFunding),
-                    "Invalid type for content 'order_book'. Expected 'OrderBook'. Found '{}'.".format(
-                        type(self.order_book)
+                    isinstance(self.funding, CustomFunding),
+                    "Invalid type for content 'funding'. Expected 'OrderBook'. Found '{}'.".format(
+                        type(self.funding)
                     ),
                 )
             elif self.performative == FundingMessage.Performative.ERROR:

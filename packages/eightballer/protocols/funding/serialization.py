@@ -71,8 +71,8 @@ class FundingSerializer(Serializer):
             funding_msg.unsubscribe.CopyFrom(performative)
         elif performative_id == FundingMessage.Performative.FUNDING_UPDATE:
             performative = funding_pb2.FundingMessage.Funding_Update_Performative()  # type: ignore
-            funding_data = msg.funding_data
-            Funding.encode(performative.funding_data, funding_data)
+            funding = msg.funding
+            Funding.encode(performative.funding, funding)
             funding_msg.funding_update.CopyFrom(performative)
         elif performative_id == FundingMessage.Performative.ERROR:
             performative = funding_pb2.FundingMessage.Error_Performative()  # type: ignore
