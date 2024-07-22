@@ -38,25 +38,16 @@ from packages.eightballer.protocols.funding.message import FundingMessage
 class FundingDialogue(Dialogue):
     """The funding dialogue class maintains state of a dialogue and manages it."""
 
-    INITIAL_PERFORMATIVES: FrozenSet[Message.Performative] = frozenset(
-        {FundingMessage.Performative.GET_FUNDING_RATE, FundingMessage.Performative.SUBSCRIBE}
-    )
+    INITIAL_PERFORMATIVES: FrozenSet[Message.Performative] = frozenset({FundingMessage.Performative.SUBSCRIBE})
     TERMINAL_PERFORMATIVES: FrozenSet[Message.Performative] = frozenset(
         {FundingMessage.Performative.UNSUBSCRIBE, FundingMessage.Performative.ERROR}
     )
     VALID_REPLIES: Dict[Message.Performative, FrozenSet[Message.Performative]] = {
         FundingMessage.Performative.ERROR: frozenset(),
-        FundingMessage.Performative.FUNDING_RATE: frozenset(),
         FundingMessage.Performative.FUNDING_UPDATE: frozenset(
             {
                 FundingMessage.Performative.FUNDING_UPDATE,
                 FundingMessage.Performative.UNSUBSCRIBE,
-                FundingMessage.Performative.ERROR,
-            }
-        ),
-        FundingMessage.Performative.GET_FUNDING_RATE: frozenset(
-            {
-                FundingMessage.Performative.FUNDING_RATE,
                 FundingMessage.Performative.ERROR,
             }
         ),
@@ -79,7 +70,7 @@ class FundingDialogue(Dialogue):
     class EndState(Dialogue.EndState):
         """This class defines the end states of a funding dialogue."""
 
-        UNSUBSCRIBE = 0
+        UNSUBSCRIBED = 0
         ERROR = 1
 
     def __init__(
@@ -109,7 +100,7 @@ class FundingDialogue(Dialogue):
 class BaseFundingDialogues(Dialogues, ABC):
     """This class keeps track of all funding dialogues."""
 
-    END_STATES = frozenset({FundingDialogue.EndState.UNSUBSCRIBE, FundingDialogue.EndState.ERROR})
+    END_STATES = frozenset({FundingDialogue.EndState.UNSUBSCRIBED, FundingDialogue.EndState.ERROR})
 
     _keep_terminal_state_dialogues = False
 
@@ -148,7 +139,7 @@ class FundingDialogues(Model, BaseFundingDialogues):
             del message, sender
             return FundingDialogue.Role.AGENT
 
-        Model.__init__(self, keep_terminal_state_dialogues=False, **kwargs)
+        Model.__init__(self, **kwargs)
         BaseFundingDialogues.__init__(
             self,
             self_address=str(self.context.skill_id),
